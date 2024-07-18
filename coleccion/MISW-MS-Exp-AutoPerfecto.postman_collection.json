@@ -80,20 +80,24 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Content-Type",
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Function-Execution-Id",
-									"value": "2kvw0i1xo2v0"
+									"key": "function-execution-id",
+									"value": "r4eftzxma504"
 								},
 								{
-									"key": "X-Cloud-Trace-Context",
-									"value": "9948ab37251949075494570fc34be6d8"
+									"key": "x-cloud-trace-context",
+									"value": "bec36dd0699ccf8044fdd0eb533d04dc;o=1"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 18 Jul 2024 15:37:21 GMT"
+									"value": "Thu, 18 Jul 2024 22:27:55 GMT"
 								},
 								{
 									"key": "Server",
@@ -101,7 +105,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "60"
+									"value": "73"
 								},
 								{
 									"key": "Alt-Svc",
@@ -109,7 +113,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"automovil_id\": 5,\n    \"status\": \"Automovil creado exitosamente\"\n}"
+							"body": "{\n    \"automovil_id\": 15,\n    \"code\": 200,\n    \"message\": \"Automovil creado exitosamente\"\n}"
 						}
 					]
 				},
@@ -171,20 +175,24 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Content-Type",
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Function-Execution-Id",
-									"value": "2kvwymfzew6z"
+									"key": "function-execution-id",
+									"value": "urcv0aymkh6x"
 								},
 								{
-									"key": "X-Cloud-Trace-Context",
-									"value": "1f503ab59c13f150931ba679d6a3baa0;o=1"
+									"key": "x-cloud-trace-context",
+									"value": "3388a6c466879b38f138e86ceb071623;o=1"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 18 Jul 2024 15:37:59 GMT"
+									"value": "Thu, 18 Jul 2024 22:23:30 GMT"
 								},
 								{
 									"key": "Server",
@@ -192,7 +200,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "76"
+									"value": "70"
 								},
 								{
 									"key": "Alt-Svc",
@@ -200,7 +208,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"No tiene permisos para consumir este recurso\",\n    \"status\": \"Error\"\n}"
+							"body": "{\n    \"code\": 403,\n    \"message\": \"No tiene permisos para consumir este recurso\"\n}"
 						}
 					]
 				},
