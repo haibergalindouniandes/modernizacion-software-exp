@@ -203,6 +203,105 @@
 							"body": "{\n    \"message\": \"No tiene permisos para consumir este recurso\",\n    \"status\": \"Error\"\n}"
 						}
 					]
+				},
+				{
+					"name": "Crear Automovil - Error Interno",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "API-KEY",
+								"value": "be4a1b16-4517-11ef-9454-0242ac120002",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"marca\": \"Toyota\",\r\n    \"placa\": \"ABC123\",\r\n    \"modelo\": \"Corolla\",\r\n    \"kilometraje\": 50000,\r\n    \"color\": \"Rojo\",\r\n    \"cilindraje\": \"1.8L\",\r\n    \"tipo_combustible\": \"Gasolina\",\r\n    \"vendido\": false,\r\n    \"valor_venta\": 15000,\r\n    \"kilometraje_venta\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_GATEWAY}}/autoperfecto/automovil/crear",
+							"host": [
+								"{{API_GATEWAY}}"
+							],
+							"path": [
+								"autoperfecto",
+								"automovil",
+								"crear"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Automovil - Error Interno",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "API-KEY",
+										"value": "be4a1b16-4517-11ef-9454-0242ac120002",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"marca\": \"Toyota\",\r\n    \"placa\": \"ABC123\",\r\n    \"modelo\": \"Corolla\",\r\n    \"kilometraje\": 50000,\r\n    \"color\": \"Rojo\",\r\n    \"cilindraje\": \"1.8L\",\r\n    \"tipo_combustible\": \"Gasolina\",\r\n    \"vendido\": false,\r\n    \"valor_venta\": 15000,\r\n    \"kilometraje_venta\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_GATEWAY}}/autoperfecto/automovil/crear",
+									"host": [
+										"{{API_GATEWAY}}"
+									],
+									"path": [
+										"autoperfecto",
+										"automovil",
+										"crear"
+									]
+								}
+							},
+							"status": "Gateway Timeout",
+							"code": 504,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Cloud-Trace-Context",
+									"value": "aa4cf48dd0ed27c3daa6d18d491cb8ac;o=1"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 20:25:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 504,\n    \"message\": \"upstream request timeout\"\n}"
+						}
+					]
 				}
 			]
 		}
