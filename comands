@@ -1,0 +1,74 @@
+---------------------------------------------
+:CONFIGURACIÓN KUBERENTES EXPERIMENTOS:
+---------------------------------------------
+
+-> Crear red virtual:
+
+	gcloud compute networks create vpn-exp-modernizacion-autoperfecto --project=exp-modernizacion-autoperfecto --subnet-mode=custom --mtu=1460 --bgp-routing-mode=regional
+
+-> Crear sub red para la base de datos:
+	gcloud compute addresses create red-dbs-exp-modernizacion-autoperfecto --global --purpose=VPC_PEERING --addresses=192.168.0.0 --prefix-length=24 --network=vpn-exp-modernizacion-autoperfecto --project=exp-modernizacion-autoperfecto
+
+-> Otorgar accesos a la red virtual:
+	gcloud services vpc-peerings connect --service=servicenetworking.googleapis.com --ranges=red-dbs-exp-modernizacion-autoperfecto --network=vpn-exp-modernizacion-autoperfecto --project=exp-modernizacion-autoperfecto
+
+-> Crear base de datos:
+	-> Instancia:
+		Nombre: exp-modernizacion-autoperfecto-db
+		Contraseña: PgNube2024**
+		Versión: PostgreSQL 15
+		Región: us-central1
+		Disponibilidad zonal: Única
+	
+	-> Maquina y Almacenamiento:
+		Tipo de máquina: De núcleo compartido, 1 core y 1.7 GB de RAM
+		Almacenamiento 10 GB de HDD
+		No habilitar los aumentos automáticos de almacenamiento.
+	
+	-> Conexiones:
+		Asignación de IP de la instancia: privada
+		Red: vpn-exp-modernizacion-autoperfecto
+		Rango de IP asignado: red-dbs-exp-modernizacion-autoperfecto
+		
+	-> Etiquetas:
+		basesdedatos
+
+-> Agregar regla del firewall :
+	gcloud compute firewall-rules create allow-db --allow tcp:5432 --source-ranges 0.0.0.0/0 --target-tags allow-db
+	gcloud sql instances patch exp-modernizacion-autoperfecto-db --authorized-networks 0.0.0.0/0
+
+-> Desplegar la funcion-crear-auto:
+
+	gcloud functions deploy crear_automovil \
+	--runtime python39 \
+	--trigger-http \
+	--allow-unauthenticated \
+	--entry-point crear_automovil \
+	--region us-central1 \
+	--timeout 60 \
+	--min-instances 0 \
+	--max-instances 10 \
+	--set-env-vars DATABASE_URI=postgresql+psycopg2://postgres:PgNube2024**@34.68.161.189:5432/postgres,API_KEY=be4a1b16-4517-11ef-9454-0242ac120002 \
+	--source ./funcion-crear-auto
+
+-> Desplegar la funcion-listar-autos:
+
+	gcloud functions deploy listar_automoviles \
+	--runtime python39 \
+	--trigger-http \
+	--allow-unauthenticated \
+	--entry-point listar_automoviles \
+	--region us-central1 \
+	--timeout 60 \
+	--min-instances 0 \
+	--max-instances 10 \
+	--set-env-vars DATABASE_URI=postgresql+psycopg2://postgres:PgNube2024**@34.68.161.189:5432/postgres,API_KEY=be4a1b16-4517-11ef-9454-0242ac120002 \
+	--source ./funcion-listar-autos
+
+-> Crear la configuración del API:	
+
+	gcloud api-gateway api-configs create autoperfecto-api-config --api=autoperfecto-api --openapi-spec=./autoperfecto-api.yaml
+
+-> Crear API Gateway:		
+
+	gcloud api-gateway gateways create autoperfecto-gateway --api=autoperfecto-api --api-config=autoperfecto-api-config --location=us-central1

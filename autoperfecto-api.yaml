@@ -1,0 +1,32 @@
+swagger: '2.0'
+info:
+  title: API gateway de AutoPerfecto
+  description: API gateway de AutoPerfecto
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /autoperfecto/automovil/crear:
+    post:
+      summary: Crea un automovil en el sistema
+      operationId: crear-automovil
+      x-google-backend:
+        address: https://us-central1-exp-modernizacion-autoperfecto.cloudfunctions.net/crear_automovil
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  # /autoperfecto/automovil/listar:
+  #   get:
+  #     summary: Obtiene el listado de automoviles registrados en el sistema
+  #     operationId: listar-automoviles
+  #     x-google-backend:
+  #       address: <FUNCTION_DETAIL_PATH>
+  #     responses:
+  #       '200':
+  #         description: A successful response
+  #         schema:
+  #           type: string

@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "1154a557-9998-4641-98b5-5fa0ab5546c6",
+		"name": "MISW-MS-Exp-AutoPerfecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5238096",
+		"_collection_link": "https://planetary-water-212881.postman.co/workspace/NeorisWorksapce~9bbcffd1-3c84-4e9a-8798-11122e25b222/collection/5238096-1154a557-9998-4641-98b5-5fa0ab5546c6?action=share&source=collection_link&creator=5238096"
+	},
+	"item": [
+		{
+			"name": "Crear Autovil",
+			"item": [
+				{
+					"name": "Crear Automovil - Exitoso",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "API-KEY",
+								"value": "be4a1b16-4517-11ef-9454-0242ac120002",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"marca\": \"Toyota\",\r\n    \"placa\": \"ABC123\",\r\n    \"modelo\": \"Corolla\",\r\n    \"kilometraje\": 50000,\r\n    \"color\": \"Rojo\",\r\n    \"cilindraje\": \"1.8L\",\r\n    \"tipo_combustible\": \"Gasolina\",\r\n    \"vendido\": false,\r\n    \"valor_venta\": 15000,\r\n    \"kilometraje_venta\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_GATEWAY}}/autoperfecto/automovil/crear",
+							"host": [
+								"{{API_GATEWAY}}"
+							],
+							"path": [
+								"autoperfecto",
+								"automovil",
+								"crear"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Automovil - Exitoso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "API-KEY",
+										"value": "be4a1b16-4517-11ef-9454-0242ac120002",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"marca\": \"Toyota\",\r\n    \"placa\": \"ABC123\",\r\n    \"modelo\": \"Corolla\",\r\n    \"kilometraje\": 50000,\r\n    \"color\": \"Rojo\",\r\n    \"cilindraje\": \"1.8L\",\r\n    \"tipo_combustible\": \"Gasolina\",\r\n    \"vendido\": false,\r\n    \"valor_venta\": 15000,\r\n    \"kilometraje_venta\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_GATEWAY}}/autoperfecto/automovil/crear",
+									"host": [
+										"{{API_GATEWAY}}"
+									],
+									"path": [
+										"autoperfecto",
+										"automovil",
+										"crear"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Function-Execution-Id",
+									"value": "2kvw0i1xo2v0"
+								},
+								{
+									"key": "X-Cloud-Trace-Context",
+									"value": "9948ab37251949075494570fc34be6d8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 15:37:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"automovil_id\": 5,\n    \"status\": \"Automovil creado exitosamente\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Crear Automovil - Error API-KEY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"marca\": \"Toyota\",\r\n    \"placa\": \"ABC123\",\r\n    \"modelo\": \"Corolla\",\r\n    \"kilometraje\": 50000,\r\n    \"color\": \"Rojo\",\r\n    \"cilindraje\": \"1.8L\",\r\n    \"tipo_combustible\": \"Gasolina\",\r\n    \"vendido\": false,\r\n    \"valor_venta\": 15000,\r\n    \"kilometraje_venta\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_GATEWAY}}/autoperfecto/automovil/crear",
+							"host": [
+								"{{API_GATEWAY}}"
+							],
+							"path": [
+								"autoperfecto",
+								"automovil",
+								"crear"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Automovil - Error API-KEY",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"marca\": \"Toyota\",\r\n    \"placa\": \"ABC123\",\r\n    \"modelo\": \"Corolla\",\r\n    \"kilometraje\": 50000,\r\n    \"color\": \"Rojo\",\r\n    \"cilindraje\": \"1.8L\",\r\n    \"tipo_combustible\": \"Gasolina\",\r\n    \"vendido\": false,\r\n    \"valor_venta\": 15000,\r\n    \"kilometraje_venta\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_GATEWAY}}/autoperfecto/automovil/crear",
+									"host": [
+										"{{API_GATEWAY}}"
+									],
+									"path": [
+										"autoperfecto",
+										"automovil",
+										"crear"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Function-Execution-Id",
+									"value": "2kvwymfzew6z"
+								},
+								{
+									"key": "X-Cloud-Trace-Context",
+									"value": "1f503ab59c13f150931ba679d6a3baa0;o=1"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 15:37:59 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"No tiene permisos para consumir este recurso\",\n    \"status\": \"Error\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_GATEWAY",
+			"value": "https://autoperfecto-gateway-2waogd55.uc.gateway.dev",
+			"type": "string"
+		}
+	]
+}
