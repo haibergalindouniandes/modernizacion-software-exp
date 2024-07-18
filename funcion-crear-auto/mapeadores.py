@@ -13,8 +13,8 @@ def generar_respuesta_exitosa(response):
 def generar_respuesta_error(response):
     # Error controlado
     if response.code:
-        logger.error(response.description)
-        return {'status': 'Error', 'message': response.description}, response.code
+        logger.error(response.message)
+        return {'status': 'Error', 'message': response.message}, response.code
     # Error interno
     logger.error(str(response))
     return {'status': 'Error', 'message': str(response)}, 500
