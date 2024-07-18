@@ -85,11 +85,11 @@
 								},
 								{
 									"key": "function-execution-id",
-									"value": "r4eftzxma504"
+									"value": "xajkjv6yqsx1"
 								},
 								{
 									"key": "x-cloud-trace-context",
-									"value": "bec36dd0699ccf8044fdd0eb533d04dc;o=1"
+									"value": "344f3e19c574203f641bb034af6d6d64;o=1"
 								},
 								{
 									"key": "alt-svc",
@@ -97,7 +97,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 18 Jul 2024 22:27:55 GMT"
+									"value": "Thu, 18 Jul 2024 22:35:29 GMT"
 								},
 								{
 									"key": "Server",
@@ -105,7 +105,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "73"
+									"value": "67"
 								},
 								{
 									"key": "Alt-Svc",
@@ -113,7 +113,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"automovil_id\": 15,\n    \"code\": 200,\n    \"message\": \"Automovil creado exitosamente\"\n}"
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Automovil con ID [17] creado exitosamente\"\n}"
 						}
 					]
 				},
