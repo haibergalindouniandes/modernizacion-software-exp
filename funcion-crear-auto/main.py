@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from modelo import Automovil, Base
 from validadores import validar_api_key
+from mapeadores import generar_respuesta_exitosa, generar_respuesta_error
 import os
 
 # Configura la conexión a la base de datos
@@ -49,10 +50,10 @@ def crear_automovil(request):
         # Inserción en la tabla
         session.add(nuevo_automovil)
         session.commit()
-
-        return {'status': 'Automovil creado exitosamente', 'automovil_id': nuevo_automovil.id}
+        
+        return generar_respuesta_exitosa(nuevo_automovil)
     except Exception as e:
         session.rollback()
-        return {'status': 'Error', 'message': str(e.description)}, e.code
+        return generar_respuesta_error(e)
     finally:
         session.close()
