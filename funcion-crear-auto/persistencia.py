@@ -22,8 +22,7 @@ def registrar_automovil(session, request):
 def consultar_automovil_por_placa(session, request):
     try:
         request_json = request.get_json()
-        automovil = session.query(Automovil).filter_by(placa=request_json['placa']).first()
-        return automovil
+        return session.query(Automovil).filter_by(placa=request_json['placa']).first()
     except Exception as e:
         logger.error(str(e))
         session.close()
