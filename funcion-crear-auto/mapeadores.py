@@ -1,3 +1,4 @@
+from modelo import Automovil
 import logging
 
 # Configuración logger
@@ -5,12 +6,12 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Función que realiza el mapeo de respuesta exitosa
-def generar_respuesta_exitosa(response):
-    logger.info(f'Automovil creado exitosamente: {response.id}')
-    return {'code': 200, 'message': f'Automovil con ID [{response.id}] creado exitosamente'}
+def mapear_respuesta_exitosa(automovil_id):
+    logger.info(f'Automovil creado exitosamente: {automovil_id}')
+    return {'code': 200, 'message': f'Automovil con ID [{automovil_id}] creado exitosamente'}
 
 # Función que realiza el mapeo de respuesta de error
-def generar_respuesta_error(response):
+def mapear_respuesta_error(response):
     # Error controlado
     if response.code:
         logger.error(response.message)
@@ -18,3 +19,31 @@ def generar_respuesta_error(response):
     # Error interno
     logger.error(str(response))
     return {'code': response.code, 'message': str(response)}, 500
+
+# Función que realiza el mapeo de respuesta exitosa
+def mapear_entidad_a_dto(request):
+    # Obtén los datos del request
+    request_json = request.get_json()
+    marca = request_json['marca']
+    placa = request_json['placa']
+    modelo = request_json['modelo']
+    kilometraje = request_json['kilometraje']
+    color = request_json['color']
+    cilindraje = request_json['cilindraje']
+    tipo_combustible = request_json['tipo_combustible']
+    vendido = request_json['vendido']
+    valor_venta = request_json['valor_venta']
+    kilometraje_venta = request_json['kilometraje_venta']
+    
+    return Automovil(
+            marca=marca,
+            placa=placa,
+            modelo=modelo,
+            kilometraje=kilometraje,
+            color=color,
+            cilindraje=cilindraje,
+            tipo_combustible=tipo_combustible,
+            vendido=vendido,
+            valor_venta=valor_venta,
+            kilometraje_venta=kilometraje_venta
+        )

@@ -1,8 +1,9 @@
-from sqlalchemy import create_engine
+from mapeadores import mapear_respuesta_exitosa, mapear_respuesta_error, mapear_entidad_a_dto
+from validadores import validar_api_key, validar_auto_existente, validar_automovil_request
+from persistencia import registrar_automovil, consultar_automovil_por_placa
 from sqlalchemy.orm import sessionmaker
-from modelo import Automovil, Base
-from validadores import validar_api_key
-from mapeadores import generar_respuesta_exitosa, generar_respuesta_error
+from sqlalchemy import create_engine
+from modelo import Base
 import os
 
 # Configura la conexión a la base de datos
@@ -14,46 +15,17 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 
 def crear_automovil(request):
-    # Obtén los datos del request
-    request_json = request.get_json()
-    marca = request_json['marca']
-    placa = request_json['placa']
-    modelo = request_json['modelo']
-    kilometraje = request_json['kilometraje']
-    color = request_json['color']
-    cilindraje = request_json['cilindraje']
-    tipo_combustible = request_json['tipo_combustible']
-    vendido = request_json['vendido']
-    valor_venta = request_json['valor_venta']
-    kilometraje_venta = request_json['kilometraje_venta']
-
     # Crea una nueva sesión
     session = Session()
-
     try:
         # Validar API-KEY
         validar_api_key(request)
-        # Crea una nueva instancia de Automovil
-        nuevo_automovil = Automovil(
-            marca=marca,
-            placa=placa,
-            modelo=modelo,
-            kilometraje=kilometraje,
-            color=color,
-            cilindraje=cilindraje,
-            tipo_combustible=tipo_combustible,
-            vendido=vendido,
-            valor_venta=valor_venta,
-            kilometraje_venta=kilometraje_venta
-        )
-
+        # Validar request
+        validar_automovil_request(request)
+        # Validar si ya se encuentra registrado el automovil
+        validar_auto_existente(consultar_automovil_por_placa(session, request))
         # Inserción en la tabla
-        session.add(nuevo_automovil)
-        session.commit()
-        
-        return generar_respuesta_exitosa(nuevo_automovil)
+        automovil_id = registrar_automovil(session, mapear_entidad_a_dto(request))
+        return mapear_respuesta_exitosa(automovil_id)
     except Exception as e:
-        session.rollback()
-        return generar_respuesta_error(e)
-    finally:
-        session.close()
+        return mapear_respuesta_error(e)
