@@ -38,12 +38,12 @@ def validar_esquema(request, schema):
 
 # Función que permite validar el esquema recibido para la creacion de un automovil
 def validar_automovil_request(request):
-    validar_esquema(request.get_json(), automovil_schema)
+    validar_esquema(request, automovil_schema)
 
 # Función que permite validar si viene el header API-KEY y si es valido
-def validar_api_key(request):
+def validar_api_key(headers):
     # Verificar el API-KEY en los headers
-    api_key = request.headers.get('API-KEY')
+    api_key = headers.get('API-KEY')
     if not api_key or api_key != API_KEY:
         logger.error(str(ApiKeyError.message))
         raise ApiKeyError

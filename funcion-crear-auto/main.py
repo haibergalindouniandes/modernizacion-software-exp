@@ -19,13 +19,15 @@ def crear_automovil(request):
     session = Session()
     try:
         # Validar API-KEY
-        validar_api_key(request)
+        validar_api_key(request.headers)
         # Validar request
-        validar_automovil_request(request)
+        validar_automovil_request(request.get_json())
+        # Asignar request json
+        nuevo_automovil = mapear_entidad_a_dto(request)
         # Validar si ya se encuentra registrado el automovil
-        validar_auto_existente(consultar_automovil_por_placa(session, request))
+        validar_auto_existente(consultar_automovil_por_placa(session, nuevo_automovil.placa))
         # Inserción en la tabla
-        automovil_id = registrar_automovil(session, mapear_entidad_a_dto(request))
+        automovil_id = registrar_automovil(session, nuevo_automovil)
         return mapear_respuesta_exitosa(automovil_id)
     except Exception as e:
         return mapear_respuesta_error(e)

@@ -6,11 +6,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Función que registra el automovil en la base de datos
-def registrar_automovil(session, request):
+def registrar_automovil(session, automovil):
     try:
-        session.add(request)
+        session.add(automovil)
         session.commit()
-        return request.id
+        return automovil.id
     except Exception as e:
         logger.error(str(e))
         session.rollback()
@@ -19,10 +19,9 @@ def registrar_automovil(session, request):
         session.close()
 
 # Función que registra el automovil en la base de datos
-def consultar_automovil_por_placa(session, request):
+def consultar_automovil_por_placa(session, placa):
     try:
-        request_json = request.get_json()
-        return session.query(Automovil).filter_by(placa=request_json['placa']).first()
+        return session.query(Automovil).filter_by(placa=placa).first()
     except Exception as e:
         logger.error(str(e))
         session.close()
