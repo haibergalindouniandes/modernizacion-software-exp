@@ -19,14 +19,14 @@ paths:
           description: A successful response
           schema:
             type: string
-  # /autoperfecto/automovil/listar:
-  #   get:
-  #     summary: Obtiene el listado de automoviles registrados en el sistema
-  #     operationId: listar-automoviles
-  #     x-google-backend:
-  #       address: <FUNCTION_DETAIL_PATH>
-  #     responses:
-  #       '200':
-  #         description: A successful response
-  #         schema:
-  #           type: string
+  /autoperfecto/automovil/listar:
+    get:
+      summary: Obtiene el listado de automoviles registrados en el sistema
+      operationId: listar-automoviles
+      x-google-backend:
+        address: <FUNCTION_DETAIL_PATH>
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
