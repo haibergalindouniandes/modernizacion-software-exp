@@ -1,4 +1,4 @@
-from errors import ApiKeyError
+from errores import ApiKeyError
 import os
 
 # Obtenemos las variables de entorno
