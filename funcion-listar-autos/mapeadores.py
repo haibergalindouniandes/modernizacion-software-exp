@@ -9,7 +9,11 @@ logger = logging.getLogger(__name__)
 # Función que realiza el mapeo de respuesta exitosa
 def generar_respuesta_exitosa(response):
     logger.info(f'Automovil listados exitosamente: {response}')
-    return response
+    json_response = []
+    for auto in response:
+        json_response.append(auto.to_dict())
+
+    return json.dumps(json_response),200,{'Content-Type': 'application/json'}
 
 # Función que realiza el mapeo de respuesta de error
 def generar_respuesta_error(response):

@@ -2,7 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from modelo import Automovil, Base
 from validadores import validar_api_key
-from mapeadores import  generar_respuesta_error
+from mapeadores import  generar_respuesta_error,generar_respuesta_exitosa
+from persistencia import listar_automoviles
 import os
 import json
 
@@ -23,12 +24,9 @@ def listar_automovil(request):
     try:
         # Validar API-KEY
         validar_api_key(request)
-        list_autos = session.query(Automovil).all() 
-        json_response = []
-        for auto in list_autos:
-            json_response.append(auto.to_dict())
-
-        return json.dumps(json_response),200,{'Content-Type': 'application/json'}
+        list_autos = listar_automoviles(session)
+        
+        return generar_respuesta_exitosa(list_autos)
     except Exception as e:
         session.rollback()
         return generar_respuesta_error(e)
