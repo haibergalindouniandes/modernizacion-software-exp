@@ -35,3 +35,19 @@ class Automovil(Base):
 
     def __getitem__(self, item):
         return getattr(self, item)
+    
+    # Función que retorna un diccionario a partir del modelo
+    def to_dict(self):
+        return {
+            "id": str(self.id),
+            "marca": self.marca,
+            "placa": self.placa,
+            "modelo": self.modelo,
+            "kilometraje": self.kilometraje,
+            "color": self.color,
+            "cilindraje": self.cilindraje,
+            "tipo_combustible": self.tipo_combustible,
+            "vendido": self.vendido,
+            "valor_venta": self.valor_venta,
+            "kilometraje_venta": self.kilometraje_venta
+        }

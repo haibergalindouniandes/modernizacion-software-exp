@@ -5,10 +5,11 @@ import json
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 # Función que realiza el mapeo de respuesta exitosa
 def generar_respuesta_exitosa(response):
     logger.info(f'Automovil listados exitosamente: {response}')
-    return json.dumps(response)
+    return response
 
 # Función que realiza el mapeo de respuesta de error
 def generar_respuesta_error(response):
@@ -19,3 +20,4 @@ def generar_respuesta_error(response):
     # Error interno
     logger.error(str(response))
     return {'code': response.code, 'message': str(response)}, 500
+

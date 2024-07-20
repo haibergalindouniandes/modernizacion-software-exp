@@ -24,7 +24,7 @@ paths:
       summary: Obtiene el listado de automoviles registrados en el sistema
       operationId: listar-automoviles
       x-google-backend:
-        address: <FUNCTION_DETAIL_PATH>
+        address: https://us-central1-exp-modernizacion-autoperfecto.cloudfunctions.net/listar_automoviles
       responses:
         '200':
           description: A successful response
