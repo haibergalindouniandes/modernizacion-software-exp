@@ -72,3 +72,11 @@
 -> Crear API Gateway:		
 
 	gcloud api-gateway gateways create autoperfecto-gateway --api=autoperfecto-api --api-config=autoperfecto-api-config --location=us-central1
+
+-> Construir imagen de la aplicacion web:
+
+	docker build -t us-central1-docker.pkg.dev/exp-modernizacion-autoperfecto/gcf-artifacts/autoperfecto-web:1.0
+
+-> Publicar imagenes en Artifact Registry:
+	
+	docker push us-central1-docker.pkg.dev/exp-modernizacion-autoperfecto/gcf-artifacts/autoperfecto-web:1.0

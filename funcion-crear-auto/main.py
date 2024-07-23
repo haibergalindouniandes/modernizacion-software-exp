@@ -15,9 +15,21 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 
 def crear_automovil(request):
-    # Crea una nueva sesión
-    session = Session()
+    # Asignar headers
+    headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,POST,PATCH,OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Max-Age": "3600",
+            "Content-Type": "application/json"
+        }
+    # Validar CORS
+    if request.method == "OPTIONS":
+        return ("", 200, headers)
+
     try:
+        # Crea una nueva sesión
+        session = Session()
         # Validar API-KEY
         validar_api_key(request.headers)
         # Validar request
@@ -25,9 +37,9 @@ def crear_automovil(request):
         # Asignar request json
         nuevo_automovil = mapear_entidad_a_dto(request)
         # Validar si ya se encuentra registrado el automovil
-        validar_auto_existente(consultar_automovil_por_placa(session, nuevo_automovil.placa))
+        # validar_auto_existente(consultar_automovil_por_placa(session, nuevo_automovil.placa))
         # Inserción en la tabla
         automovil_id = registrar_automovil(session, nuevo_automovil)
-        return mapear_respuesta_exitosa(automovil_id)
+        return mapear_respuesta_exitosa(automovil_id, headers)
     except Exception as e:
-        return mapear_respuesta_error(e)
+        return mapear_respuesta_error(e, headers)

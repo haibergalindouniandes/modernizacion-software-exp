@@ -43,7 +43,7 @@ def validar_automovil_request(request):
 # Función que permite validar si viene el header API-KEY y si es valido
 def validar_api_key(headers):
     # Verificar el API-KEY en los headers
-    api_key = headers.get('API-KEY')
+    api_key = headers.get('Api-Key')
     if not api_key or api_key != API_KEY:
         logger.error(str(ApiKeyError.message))
         raise ApiKeyError

@@ -6,6 +6,7 @@ flask_sqlalchemy==3.*
 jsonschema==4.0.0
 marshmallow
 marshmallow_sqlalchemy
+functions-framework==3.8.0
 psycopg2-binary==2.*
 psycopg2==2.*
 requests

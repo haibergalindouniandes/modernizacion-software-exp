@@ -1,32 +1,85 @@
-swagger: '2.0'
-info:
-  title: API gateway de AutoPerfecto
-  description: API gateway de AutoPerfecto
-  version: 1.0.0
-schemes:
-  - https
-produces:
-  - application/json
-paths:
-  /autoperfecto/automovil/crear:
-    post:
-      summary: Crea un automovil en el sistema
-      operationId: crear-automovil
-      x-google-backend:
-        address: https://us-central1-exp-modernizacion-autoperfecto.cloudfunctions.net/crear_automovil
-      responses:
-        '200':
-          description: A successful response
-          schema:
-            type: string
-  /autoperfecto/automovil/listar:
-    get:
-      summary: Obtiene el listado de automoviles registrados en el sistema
-      operationId: listar-automoviles
-      x-google-backend:
-        address: https://us-central1-exp-modernizacion-autoperfecto.cloudfunctions.net/listar_automoviles
-      responses:
-        '200':
-          description: A successful response
-          schema:
-            type: string
+swagger: '2.0'  
+host: my-cool-api.endpoints.my-project-id.cloud.goog  
+x-google-endpoints:  
+- name: my-cool-api.endpoints.my-project-id.cloud.goog  
+  allowCors: True  
+info:  
+  title: API gateway de AutoPerfecto  
+  description: API gateway de AutoPerfecto  
+  version: 1.0.0  
+schemes:  
+  - https  
+produces:  
+  - application/json  
+paths:  
+  /autoperfecto/automovil/crear:  
+    post:  
+      summary: Crea un automovil en el sistema  
+      operationId: crear-automovil  
+      x-google-backend:  
+        address: https://us-central1-exp-modernizacion-autoperfecto.cloudfunctions.net/crear_automovil  
+      responses:  
+        '200':  
+          description: A successful response  
+          schema:  
+            type: string  
+      x-google-extensions:  
+        cors:  
+          allowMethods:  
+            - POST  
+            - OPTIONS  
+          allowHeaders:  
+            - "*"  
+          allowOrigin:  
+            - "*"  
+    options:  
+      summary: Describe las opciones de CORS para la creación de un automóvil  
+      operationId: opciones-crear-automovil  
+      responses:  
+        '200':  
+          description: A successful response  
+      x-google-extensions:  
+        cors:  
+          allowMethods:  
+            - POST  
+            - OPTIONS  
+          allowHeaders:  
+            - "*"  
+          allowOrigin:  
+            - "*"  
+          
+  /autoperfecto/automovil/listar:  
+    get:  
+      summary: Obtiene el listado de automoviles registrados en el sistema  
+      operationId: listar-automoviles  
+      x-google-backend:  
+        address: https://us-central1-exp-modernizacion-autoperfecto.cloudfunctions.net/listar_automoviles  
+      responses:  
+        '200':  
+          description: A successful response  
+          schema:  
+            type: string  
+      x-google-extensions:  
+        cors:  
+          allowMethods:  
+            - GET  
+            - OPTIONS  
+          allowHeaders:  
+            - "*"  
+          allowOrigin:  
+            - "*"  
+    options:  
+      summary: Describe las opciones de CORS para listar automóviles  
+      operationId: opciones-listar-automoviles  
+      responses:  
+        '200':  
+          description: A successful response  
+      x-google-extensions:  
+        cors:  
+          allowMethods:  
+            - GET  
+            - OPTIONS  
+          allowHeaders:  
+            - "*"  
+          allowOrigin:  
+            - "*"

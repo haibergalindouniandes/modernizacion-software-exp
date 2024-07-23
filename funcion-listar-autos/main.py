@@ -3,9 +3,9 @@ from sqlalchemy.orm import sessionmaker
 from modelo import Automovil, Base
 from validadores import validar_api_key
 from mapeadores import  generar_respuesta_error,generar_respuesta_exitosa
-from persistencia import listar_automoviles
+from persistencia import listar_automoviles_registrados
+import functions_framework
 import os
-import json
 
 # Configura la conexión a la base de datos
 DATABASE_URI = os.getenv('DATABASE_URI')
@@ -16,19 +16,25 @@ Base.metadata.create_all(engine)
 # Crear la sesion
 Session = sessionmaker(bind=engine)
 
-def listar_automovil(request):
+@functions_framework.http
+def listar_automoviles(request):
+    # Asignar headers
+    headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,POST,PATCH,OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Max-Age": "3600",
+            "Content-Type": "application/json"
+        }
+    # Validar CORS
+    if request.method == "OPTIONS":
+        return ("", 200, headers)
     
-    # Crea una nueva sesión
-    session = Session()
-
     try:
+        # Crea una nueva sesión
+        session = Session()
         # Validar API-KEY
-        validar_api_key(request)
-        list_autos = listar_automoviles(session)
-        
-        return generar_respuesta_exitosa(list_autos)
+        validar_api_key(request.headers)
+        return generar_respuesta_exitosa(listar_automoviles_registrados(session), headers)
     except Exception as e:
-        session.rollback()
-        return generar_respuesta_error(e)
-    finally:
-        session.close()
+        return generar_respuesta_error(e, headers) 
