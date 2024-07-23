@@ -1,0 +1,60 @@
+<div class="container" *ngIf="selectedCar !== undefined">
+  <div class="card">
+    <div class="card-body">
+      <table class="table rounded-table" id="table-detail-service">
+        <tbody>
+          <tr>
+            <td>
+              <strong>Placa: </strong>
+              <p>{{ selectedCar.placa }}</p>
+            </td>
+            <td>
+              <strong>Marca: </strong>
+              <p>{{ selectedCar.marca }}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Modelo: </strong>
+              <p>{{ selectedCar.modelo }}</p>
+            </td>
+            <td>
+              <strong>Color: </strong>
+              <p>{{ selectedCar.color }}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Tipo de Combustible: </strong>
+              <p>{{ selectedCar.tipo_combustible }}</p>
+            </td>
+            <td>
+              <strong>Cilindraje: </strong>
+              <p>{{ selectedCar.cilindraje }}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Kilometraje: </strong>
+              <p>{{ selectedCar.kilometraje }}</p>
+            </td>
+            <td>
+              <strong>Kilometraje de Venta: </strong>
+              <p>{{ selectedCar.kilometraje_venta }}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Vendido: </strong>
+              <p>{{ selectedCar.vendido }}</p>
+            </td>
+            <td>
+              <strong>Valor Venta: </strong>
+              <p>{{ selectedCar.valor_venta }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

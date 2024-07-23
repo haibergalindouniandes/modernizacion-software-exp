@@ -1,0 +1,52 @@
+.rounded-table {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+
+  thead {
+    th {
+      text-align: center;
+      font-weight: bold;
+
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        &:first-child {
+          width: 50%;
+        }
+        &:nth-child(2) {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  th,
+  td {
+    padding: 2px;
+    border-bottom: 1px solid #ddd;
+    border: none;
+  }
+
+  thead th {
+    border-top: 1px solid #ddd;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tbody tr:hover {
+    background-color: #ddd;
+  }
+}

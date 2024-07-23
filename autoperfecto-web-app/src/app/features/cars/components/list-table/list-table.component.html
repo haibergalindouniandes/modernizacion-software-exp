@@ -1,0 +1,12 @@
+<div class="container table-container">
+  <table class="table" class="table rounded-table" id="table-list-cars">
+    <tbody>
+      <tr *ngFor="let car of carsList" (click)="onSelectedCar(car)">
+        <td  [class.selected]="selectedCar === car" >
+          <p><strong>{{ car.placa }}</strong></p>
+          {{ car.marca }} / {{ car.modelo }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

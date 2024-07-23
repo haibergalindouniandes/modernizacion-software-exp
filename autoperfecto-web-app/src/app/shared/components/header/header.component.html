@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- Left menu -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav logo_margin">
+      <li>
+        <a class="navbar-brand ml-3" href="/home">
+          <img src="../../../../assets/images/home/logo.png" class="img-fluid img_logo" alt="SportApp Logo">
+        </a>
+      </li>
+      <!-- Menu automoviles -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn()">
+        <a class="nav-link dropdown-toggle" href="#" id="menuautomoviles" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Automoviles
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menuautomoviles" id="dropdown-automoviles">
+          <li><a class="dropdown-item" [routerLink]="['/cars', 'list-detail-cars']">Listar Automoviles</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/cars', 'register']">Registrar Automovil</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- Rigth menu -->
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSettingsContent">
+    <ul class="navbar-nav">
+      <!-- Menu session -->
+      <li class="nav-item dropdown sesion_margin">
+        <a class="nav-link dropdown-toggle" href="#" id="sesionMenu" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img src="../../../../assets/images/home/user-avatar.png" class="img-fluid img_avatar" alt="User Avatar">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="languageMenu">
+          <li><a class="nav-link" [routerLink]="['/auth', 'signin']" *ngIf="!isLoggedIn()">Iniciar Sesion</a></li>
+          <li><a class="nav-link" *ngIf="isLoggedIn()" (click)="logout()">Cerrar Sesion</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

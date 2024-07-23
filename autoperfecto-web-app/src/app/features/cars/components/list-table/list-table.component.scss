@@ -1,0 +1,35 @@
+#table-container {
+  overflow-y: auto;
+}
+
+#table-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.rounded-table {
+
+  th,
+  td {
+    padding: 3%;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+  }
+
+  thead th {
+    border-top: 1px solid #ddd;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tbody td:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+}
+
+.selected {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}

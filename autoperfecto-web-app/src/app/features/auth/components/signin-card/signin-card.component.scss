@@ -1,0 +1,28 @@
+.login-card {
+  max-width: 100%;
+  margin: 20px auto;
+  position: relative;
+}
+
+.login-card img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.text-overlay {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.text-overlay h1,
+.text-overlay p {
+  margin: 0;
+  color: #fff;
+}

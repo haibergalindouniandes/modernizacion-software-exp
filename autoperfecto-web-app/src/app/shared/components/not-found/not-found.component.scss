@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis:300,400,700,800");
+
+.denied__wrapper {
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+#astronaut {
+    width: 43px;
+    position: absolute;
+    right: 20px;
+    top: 210px;
+    animation: spin 4.5s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .permission_denied h1 {
+        font-size: 75px;
+    }
+    .permission_denied h3 {
+        font-size: 16px;
+        width: 200px;
+        margin: 0 auto;
+        line-height: 23px;
+    }
+    .permission_denied h3 span {
+        width: 60px;
+    }
+    #astronaut {
+        width: 35px;
+        right: 40px;
+        top: 170px;
+    }
+}
+
+.saturn,
+.saturn-2,
+.hover {
+    animation: hover 2s infinite ease-in-out alternate;
+}
+
+@keyframes hover {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(-3px);
+    }
+}
+
+.container {
+  height: 88vh;
+  display: grid;
+  align-items: center;
+}

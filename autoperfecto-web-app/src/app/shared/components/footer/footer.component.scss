@@ -1,0 +1,18 @@
+.footer {
+  height: 6vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container p {
+  margin: 0;
+  color: white;
+}

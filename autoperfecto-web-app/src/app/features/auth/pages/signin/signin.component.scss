@@ -1,0 +1,20 @@
+.container {
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-card {
+  max-width: 75%;
+  margin: 20px auto;
+  color: rgb(0, 0, 0);
+  position: relative;
+  // background-color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

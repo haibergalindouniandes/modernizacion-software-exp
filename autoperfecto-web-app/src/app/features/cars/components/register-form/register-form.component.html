@@ -1,0 +1,149 @@
+<div class="container">
+  <form id="description-registration-form" [formGroup]="serviceRegistrationForm">
+    <div class="row text-center">
+      <h1>Registro de Automoviles</h1>
+      <hr>
+    </div>
+    <div class="row">
+      <!-- Primera columna -->
+      <div class="col-md-6">
+        <div>
+          <label for="marca">Marca:</label>
+          <input type="text" id="marca" class="form-control" formControlName="marca">
+          <div
+            *ngIf="serviceRegistrationForm.controls['marca'].invalid && serviceRegistrationForm.controls['marca'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['marca'].errors?.['required']">Marca es requerida</small>
+            <small *ngIf="serviceRegistrationForm.controls['marca'].errors?.['minlength']">Marca debe tener al menos 2
+              caracteres</small>
+          </div>
+        </div>
+
+        <div>
+          <label for="placa">Placa:</label>
+          <input type="text" id="placa" class="form-control" formControlName="placa">
+          <div
+            *ngIf="serviceRegistrationForm.controls['placa'].invalid && serviceRegistrationForm.controls['placa'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['placa'].errors?.['required']">Placa es requerida</small>
+            <small *ngIf="serviceRegistrationForm.controls['placa'].errors?.['minlength']">Placa debe tener al menos 2
+              caracteres</small>
+          </div>
+        </div>
+
+        <div>
+          <label for="modelo">Modelo:</label>
+          <input type="text" class="form-control" id="modelo" formControlName="modelo">
+          <div
+            *ngIf="serviceRegistrationForm.controls['modelo'].invalid && serviceRegistrationForm.controls['modelo'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['modelo'].errors?.['required']">Modelo es requerido</small>
+            <small *ngIf="serviceRegistrationForm.controls['modelo'].errors?.['minlength']">Modelo debe tener al menos 2
+              caracteres</small>
+          </div>
+        </div>
+
+        <div>
+          <label for="kilometraje">Kilometraje:</label>
+          <input id="kilometraje" type="number" class="form-control" formControlName="kilometraje">
+          <div
+            *ngIf="serviceRegistrationForm.controls['kilometraje'].invalid && serviceRegistrationForm.controls['kilometraje'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['kilometraje'].errors?.['required']">Kilometraje es
+              requerido</small>
+            <small *ngIf="serviceRegistrationForm.controls['kilometraje'].errors?.['min']">Kilometraje debe ser mayor o
+              igual a 0</small>
+          </div>
+        </div>
+
+        <div>
+          <label for="color">Color:</label>
+          <input type="text" id="color" class="form-control" formControlName="color">
+          <div
+            *ngIf="serviceRegistrationForm.controls['color'].invalid && serviceRegistrationForm.controls['color'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['color'].errors?.['required']">Color es requerido</small>
+            <small *ngIf="serviceRegistrationForm.controls['color'].errors?.['minlength']">Color debe tener al menos 2
+              caracteres</small>
+          </div>
+        </div>
+      </div>
+      <!-- Segunda columna -->
+      <div class="col-md-6">
+        <div>
+          <label for="cilindraje">Cilindraje:</label>
+          <input type="text" id="cilindraje" class="form-control" formControlName="cilindraje">
+          <div
+            *ngIf="serviceRegistrationForm.controls['cilindraje'].invalid && serviceRegistrationForm.controls['cilindraje'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['cilindraje'].errors?.['required']">Cilindraje es
+              requerido</small>
+            <small *ngIf="serviceRegistrationForm.controls['cilindraje'].errors?.['minlength']">Cilindraje debe tener al
+              menos 2 caracteres</small>
+          </div>
+        </div>
+
+        <div>
+          <label for="tipo_combustible">Tipo de Combustible:</label>
+          <input type="text" id="tipo_combustible" class="form-control" formControlName="tipo_combustible">
+          <div
+            *ngIf="serviceRegistrationForm.controls['tipo_combustible'].invalid && serviceRegistrationForm.controls['tipo_combustible'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['tipo_combustible'].errors?.['required']">Tipo de combustible
+              es requerido</small>
+            <small *ngIf="serviceRegistrationForm.controls['tipo_combustible'].errors?.['minlength']">Tipo de
+              combustible debe tener al menos 2 caracteres</small>
+          </div>
+        </div>
+
+        <div>
+          <label for="valor_venta">Valor de Venta:</label>
+          <input id="valor_venta" type="number" class="form-control" formControlName="valor_venta">
+          <div
+            *ngIf="serviceRegistrationForm.controls['valor_venta'].invalid && serviceRegistrationForm.controls['valor_venta'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['valor_venta'].errors?.['required']">Valor de venta es
+              requerido</small>
+            <small *ngIf="serviceRegistrationForm.controls['valor_venta'].errors?.['min']">Valor de venta debe ser mayor
+              o igual a 0</small>
+          </div>
+        </div>
+
+        <div>
+          <label for="kilometraje_venta">Kilometraje de Venta:</label>
+          <input id="kilometraje_venta" type="number" class="form-control" formControlName="kilometraje_venta">
+          <div
+            *ngIf="serviceRegistrationForm.controls['kilometraje_venta'].invalid && serviceRegistrationForm.controls['kilometraje_venta'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['kilometraje_venta'].errors?.['required']">Kilometraje de
+              venta es requerido</small>
+            <small *ngIf="serviceRegistrationForm.controls['kilometraje_venta'].errors?.['min']">Kilometraje de venta
+              debe ser mayor o igual a 0</small>
+          </div>
+        </div>
+
+        <!-- <div>
+          <label for="vendido">Vendido:</label>
+          <input id="vendido" type="checkbox" class="form-control" formControlName="vendido">
+          <div
+            *ngIf="serviceRegistrationForm.controls['vendido'].invalid && serviceRegistrationForm.controls['vendido'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['vendido'].errors?.['required']">Vendido es requerido</small>
+          </div>
+        </div> -->
+        <div>
+          <label for="vendido">Vendido:</label>
+          <select id="vendido" class="form-control" formControlName="vendido">
+            <option value="">Seleccione una opción</option>
+            <option value="Si">Sí</option>
+            <option value="No">No</option>
+          </select>
+          <div
+            *ngIf="serviceRegistrationForm.controls['vendido'].invalid && serviceRegistrationForm.controls['vendido'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['vendido'].errors?.['required']">Vendido es requerido</small>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row mt-3">
+      <!-- Buttons-->
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary me-2" id="btn-register" (click)="registerService()"
+          [disabled]="serviceRegistrationForm.invalid">Register</button>
+        <button type="button" class="btn btn-danger" id="btn-cancel" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
