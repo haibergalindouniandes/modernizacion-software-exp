@@ -7,16 +7,6 @@
     <div class="row">
       <!-- Primera columna -->
       <div class="col-md-6">
-        <div>
-          <label for="marca">Marca:</label>
-          <input type="text" id="marca" class="form-control" formControlName="marca">
-          <div
-            *ngIf="serviceRegistrationForm.controls['marca'].invalid && serviceRegistrationForm.controls['marca'].touched">
-            <small *ngIf="serviceRegistrationForm.controls['marca'].errors?.['required']">Marca es requerida</small>
-            <small *ngIf="serviceRegistrationForm.controls['marca'].errors?.['minlength']">Marca debe tener al menos 2
-              caracteres</small>
-          </div>
-        </div>
 
         <div>
           <label for="placa">Placa:</label>
@@ -25,6 +15,17 @@
             *ngIf="serviceRegistrationForm.controls['placa'].invalid && serviceRegistrationForm.controls['placa'].touched">
             <small *ngIf="serviceRegistrationForm.controls['placa'].errors?.['required']">Placa es requerida</small>
             <small *ngIf="serviceRegistrationForm.controls['placa'].errors?.['minlength']">Placa debe tener al menos 2
+              caracteres</small>
+          </div>
+        </div>
+
+        <div>
+          <label for="marca">Marca:</label>
+          <input type="text" id="marca" class="form-control" formControlName="marca">
+          <div
+            *ngIf="serviceRegistrationForm.controls['marca'].invalid && serviceRegistrationForm.controls['marca'].touched">
+            <small *ngIf="serviceRegistrationForm.controls['marca'].errors?.['required']">Marca es requerida</small>
+            <small *ngIf="serviceRegistrationForm.controls['marca'].errors?.['minlength']">Marca debe tener al menos 2
               caracteres</small>
           </div>
         </div>
@@ -113,14 +114,6 @@
           </div>
         </div>
 
-        <!-- <div>
-          <label for="vendido">Vendido:</label>
-          <input id="vendido" type="checkbox" class="form-control" formControlName="vendido">
-          <div
-            *ngIf="serviceRegistrationForm.controls['vendido'].invalid && serviceRegistrationForm.controls['vendido'].touched">
-            <small *ngIf="serviceRegistrationForm.controls['vendido'].errors?.['required']">Vendido es requerido</small>
-          </div>
-        </div> -->
         <div>
           <label for="vendido">Vendido:</label>
           <select id="vendido" class="form-control" formControlName="vendido">
