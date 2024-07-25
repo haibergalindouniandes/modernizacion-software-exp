@@ -37,7 +37,7 @@ def crear_automovil(request):
         # Asignar request json
         nuevo_automovil = mapear_entidad_a_dto(request)
         # Validar si ya se encuentra registrado el automovil
-        # validar_auto_existente(consultar_automovil_por_placa(session, nuevo_automovil.placa))
+        validar_auto_existente(consultar_automovil_por_placa(session, nuevo_automovil.placa))
         # Inserción en la tabla
         automovil_id = registrar_automovil(session, nuevo_automovil)
         return mapear_respuesta_exitosa(automovil_id, headers)
